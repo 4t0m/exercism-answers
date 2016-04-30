@@ -9,9 +9,9 @@ class PhoneNumber
   def self.interpret_number(input)
     number = input.match /(1)?\D*(\d{3})\D*(\d{3})\D*(\d{4})(\d)?/
     if number && number[5].nil?
-      return [number[2] + number[3] + number[4], number[2]]
+      [number[2] + number[3] + number[4], number[2]]
     else
-      return ["0000000000", "000"]
+      ["0000000000", "000"]
     end
   end
 
