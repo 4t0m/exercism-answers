@@ -1,19 +1,20 @@
 class Prime
-  def is_prime?(number)
+  def prime?(number)
     return false if number < 2
-    (2 .. number/2).each do |factor|
-      return false if number % factor == 0
+    sqrt = Math.sqrt(number)
+    2.upto(sqrt) do |factor|
+      return false unless number % factor != 0
     end
-    true
   end
+  private :prime?
 
   def nth(number)
     raise ArgumentError.new if number == 0
-    primes = []
-    i = 1
+    primes = [2]
+    i = 3
     until primes.count == number
-      primes << i if is_prime?(i)
-      i += 1
+      primes << i if prime?(i)
+      i += 2
     end
     primes.last
   end
